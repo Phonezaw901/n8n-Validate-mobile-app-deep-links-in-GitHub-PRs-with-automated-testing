@@ -83,3 +83,27 @@ grep -oE 'http[s]?://[^" ]+' "$MANIFEST" | while read -r uri; do
   fi
 done
 ```
+
+---
+
+### 🧪 How To Customise
+
+| Customization                         | Method                                                                                                                       |
+| :------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------- |
+| **Multiple manifests**                | Duplicate the **Execute-Command** step or extend the script to accept a list of file paths.                                  |
+| **Replace-latest comment**            | Switch `commentMode` to `replace-latest` and update the GitHub node to search for the newest bot comment before editing.     |
+| **Status checks instead of comments** | Call the **GitHub API** → “Create Commit Status” endpoint to show a Green/Red checkmark on the PR instead of a text comment. |
+| **Change validation logic**           | Modify the `scripts/validate_deeplinks.sh` file to include specific regex or complex URI parsing.                            |
+
+---
+
+### ➕ Add-Ons (Advanced)
+
+| Add-On                      | Idea                                                                                                         |
+| :-------------------------- | :----------------------------------------------------------------------------------------------------------- |
+| 📱 **Multi-platform sweep** | Loop over both Android and iOS manifests and aggregate the results into a single summary table.              |
+| 💬 **Slack/Teams alert**    | Push failure notifications into your team's chat channel of choice via the **Incoming-Webhook** node.        |
+| 🌐 **Parallel device grid** | Trigger multiple emulators (e.g., API 19 through API 34) simultaneously to catch OS-specific routing issues. |
+| 📊 **Historical Tracking**  | Send validation results to a **PostgreSQL** or **Google Sheet** to track deep-link stability over time.      |
+
+---
